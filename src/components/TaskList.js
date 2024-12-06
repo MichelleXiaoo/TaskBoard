@@ -1,15 +1,20 @@
 import React from "react";
 
 function TaskList({ tasks, onEditTask, onDeleteTask }) {
-
   const handleEdit = (task) => {
     const updatedName = prompt("Update task name:", task.name);
-    const updatedDescription = prompt("Update description:", task.description)
+    const updatedDescription = prompt("Update description:", task.description);
     const updatedAssigned = prompt("Update assigned person:", task.assigned);
     const updatedStatus = prompt("Update task status:", task.status);
     const updatedDue = prompt("Update due date:", task.due);
 
-    if (updatedName && updatedDescription && updatedAssigned && updatedStatus && updatedDue) {
+    if (
+      updatedName &&
+      updatedDescription &&
+      updatedAssigned &&
+      updatedStatus &&
+      updatedDue
+    ) {
       //creates updated task object
       const updatedTask = {
         name: updatedName,
@@ -30,9 +35,8 @@ function TaskList({ tasks, onEditTask, onDeleteTask }) {
 
   return (
     <div className="task-list">
-      
       {tasks.length === 0 ? (
-        <p>No tasks added yet.</p>
+        <p className="notask">No task added yet.</p>
       ) : (
         tasks.map((task) => (
           <div key={task.id} className="task-card">
@@ -53,9 +57,17 @@ function TaskList({ tasks, onEditTask, onDeleteTask }) {
               <strong>ID: </strong> {task.id}
             </p>
 
-            <button className="edittask" onClick={() => handleEdit(task)}>Edit</button>
-            <button className="edittask" onClick={() => handleDelete(task.id)}>Delete</button>
-
+            <div className="edit-button-container">
+              <button className="edittaskbtn" onClick={() => handleEdit(task)}>
+                Edit
+              </button>
+              <button
+                className="edittaskbtn"
+                onClick={() => handleDelete(task.id)}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))
       )}

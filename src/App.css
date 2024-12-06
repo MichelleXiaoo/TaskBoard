@@ -1,4 +1,229 @@
-.App {
+body {
+  margin: 0;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  width: 100%;
+}
+
+.app-container {
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #013a63;
+  font-size: 14px;
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+  margin-left: 5px;
+}
+/*.task-container {
+  background: #eaf7f9;
+  color: #013a63;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  font-family: sans-serif;
+  max-width: 600px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+*/
+
+.card {
+  border: none;
+  border-radius: 30px;
+}
+
+.addtask {
+  background-color: #2b68ef;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+  padding: 10px;
+  margin: 30px auto 50px auto;
+  display: block;
+  width: 30%;
+  cursor: pointer;
+}
+
+.addtask:hover {
+  background-color: #f9a825;
+  font-weight: bold;
+}
+
+.edit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* .edit-button-container .edittaskbtn:last-child {
+  flex-basis: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}*/
+
+.edittaskbtn {
+  /* display: inline-block;
+  text-align: center;
+  align-items: center;
+  margin: 10px 79px;*/
+  width: 120px;
+  padding: 10px 20px;
+  background-color: #cfd5d6;
+  color: #013a63;
+  border: rgb(170, 181, 185);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edittaskbtn:hover {
+  background-color: #0077b6;
+  color: #fff;
+}
+
+.sorttask {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  margin: 20px 30px;
+  padding: 10px 20px;
+  background-color: #caf0f8;
+  color: #013a63;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 140px;
+}
+
+.sorttask:hover {
+  background-color: #2b68ef;
+  color: #fff;
+}
+
+.create-task {
+  display: block;
+  text-align: center;
+  align-items: center;
+  margin: 20px 30px;
+  padding: 10px 20px;
+  background-color: #caf0f8;
+  color: #013a63;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 160px;
+}
+
+.create-task:hover {
+  background-color: #f9a825;
+  color: #fff;
+  font-weight: bold;
+}
+
+.add-task-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  align-items: center; /* Vertically center the button */
+  /* height: 100vh; Make sure the container takes full viewport height */
+}
+
+/*.row {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  gap: 10px;
+}
+
+.col-md-6 {
+  flex: 1;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 90px;
+  margin-top: 10px;
+}
+
+.form-group-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+*/
+
+textarea {
+  min-height: 70px;
+  margin-top: 7px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/*.todo {
+  text-align: center;
+  text-decoration:underline brown;
+  } */
+
+.forminput {
+  display: block;
+  width: 500px;
+  height: 20px;
+  padding: 5px 10px;
+  margin: 5px 0 20px 0;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+}
+
+select {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 5px 5px;
+  margin: 10px 0;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+}
+
+.task-card {
+  background-color: #f8fbfc;
+  padding: 5px 20px;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  line-height: 15px;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.notask {
+  text-align: center;
+  font-size: 14px;
+  color: #0955ba;
+}
+
+/*.App {
   text-align: center;
 }
 
@@ -35,206 +260,9 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-
-
-
-
-
-
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-.app-container {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  min-height: 100vh;
-  display: flex;
-    justify-content: center;
-  align-items: center;
-  padding: 20px;
-  color: #fff;
-}
-
-.task-container {
-  background:cornsilk;
-  color: #013a63;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  padding: 20px;
-  width: 100%;
-  font-family:cursive;
-  max-width: 600px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card {
-  border: none;
-  border-radius: 30px;
-}
-
-
-.addtask {
-  background-color: #2B68EF;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: 0.3s;
-  padding: 10px;
-  margin: 30px auto 50px auto;
-  display: block;
-  width: 30%;
-  cursor: pointer;
-}
-
-.addtask:hover {
-  background-color: #ffb703;
-  font-weight: 800;
-  }
-
-.edittask {
-    display: inline-block;
-    text-align: center;
-    align-items: center;
-    margin: 10px 79px;
-    padding: 10px 20px;
-    background-color: #cfd5d6;
-    color: #013a63;    
-    border: rgb(170, 181, 185); 
-    border-radius: 5px; 
-    cursor: pointer;
-    width: 120px;
-  }
-  
-.edittask:hover {
-    background-color: #0077b6;
-    color: #fff;
-  }
-
-.sorttask {
-  display: inline-block;
-  text-align: center;
-  align-items: center;
-  margin: 20px 30px;
-  padding: 10px 20px;
-  background-color: #caf0f8;
-  color: #013a63;  
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer;
-  width: 140px;
-}
-
-.sorttask:hover {
-  background-color: #2B68EF;
-  color: #fff;
-}
-
-.create-task {
-  display: block;
-  text-align: center;
-  align-items: center;
-  margin: 20px 30px;
-  padding: 10px 20px;
-  background-color: #caf0f8;
-  color: #013a63;  
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer;
-  width: 160px;
-}
-
-.create-task:hover {
-  background-color: #2B68EF;
-  color: #fff;
-}
-
-
-.button-container {
-  display: flex;
-  justify-content: center;  /* Horizontally center the button */
-  align-items: center;      /* Vertically center the button */
-  height: 100vh;            /* Make sure the container takes full viewport height */
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin:auto;
-  gap: 10px; 
-}
-
-.col-md-6 {
-  flex: 1;
-}
-
-.form-group {
-  flex:1;
-  margin-bottom: 90px;
-  margin-top: 10px;
-  }
-
-.form-group-row {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-textarea {
-  min-height:70px;
-  margin-top: 7px;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 100%; 
-}
-
-/*.todo {
-  text-align: center;
-  text-decoration:underline brown;
-  } */
-
-.forminput {
-  display: block;
-  width: 96.5%;
-  height: 20px;
-  padding: 5px 10px;
-  margin: 10px 0;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 2px;  
-}
-
-select {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 5px 5px;
-  margin: 10px 0;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 2px;  
-}
-
-.task-card {
-  background-color: #fff;
-  padding:5px 20px;
-  color: #495057;
-  border: 1px solid #ced4da;
-  border-radius: 2px; 
-  line-height: 15px;
-}
- /* .background {
+/* .background {
     background-image: url(components/pic.png);
     background-size: cover; 
     background-position: center; 

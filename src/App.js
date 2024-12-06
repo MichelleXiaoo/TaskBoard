@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
-import HeadBanner from './components/HeadBanner'; 
-import Footer from './components/Footer'; 
+//import HeadBanner from "./components/HeadBanner";
+import Footer from "./components/Footer";
 import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [tasks, setTasks] = useState([]); //holds the current displayed tasks
@@ -26,10 +27,10 @@ function App() {
     const newTasks = [...tasks, task];
     setTasks(newTasks);
     setAllTasks(newTasks); // Make sures original tasks are updated
-  }
+  };
 
   const sortTasks = (status) => {
-    if(status === "all") {
+    if (status === "all") {
       //shows all tasks
       setTasks(allTasks);
     } else {
@@ -41,42 +42,51 @@ function App() {
 
   //edit task
   const editTask = (id, updatedTask) => {
-    const updatedTasks = tasks.map((task) => 
-    task.id === id ? {...task, ...updatedTask } : task
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, ...updatedTask } : task
     );
     setTasks(updatedTasks);
-    setAllTasks(updatedTasks);// updates original tasks after edit
+    setAllTasks(updatedTasks); // updates original tasks after edit
   };
 
   //deletes task
   const deleteTask = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id != id);
+    const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
     setAllTasks(updatedTasks); //updates original list after deletion
-  }
+  };
 
   return (
-    
     <div className="app-container">
       <div className="task-container">
-        <HeadBanner /> 
-        <h3 style={{textAlign:'center', fontSize: 30}}>Task List</h3>
+        <NavBar />
+        <h3 style={{ textAlign: "center", fontSize: 26 }}>Task List</h3>
         {/*Sorting Buttons*/}
-        <button className="sorttask" onClick={() => sortTasks("in-progress")}>In Progress</button>
-        <button className="sorttask" onClick={() => sortTasks("completed")}>Completed</button>
-        <button className="sorttask" onClick={() => sortTasks("review")}>Review</button>
-        <button className="sorttask" onClick={() => sortTasks("all")}>All Tasks</button> {/* To show all tasks */}
+        <button className="sorttask" onClick={() => sortTasks("in-progress")}>
+          In Progress
+        </button>
+        <button className="sorttask" onClick={() => sortTasks("completed")}>
+          Completed
+        </button>
+        <button className="sorttask" onClick={() => sortTasks("review")}>
+          Review
+        </button>
+        <button className="sorttask" onClick={() => sortTasks("all")}>
+          All Tasks
+        </button>{" "}
+        {/* To show all tasks */}
         <TaskForm onAddForm={addTasks} />
         <TaskList
           tasks={tasks}
           onEditTask={editTask}
           onDeleteTask={deleteTask}
         />
-        
         <Footer />
-        </div>
+      </div>
     </div>
   );
 }
+
+// <HeadBanner />
 
 export default App;
